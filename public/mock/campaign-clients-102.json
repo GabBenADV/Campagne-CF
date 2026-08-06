@@ -1,0 +1,63 @@
+{
+  "status": "success",
+  "message": null,
+  "data": [
+    {
+      "campaign_client_id": 9101,
+      "client_id": 601,
+      "company": "Omega Service",
+      "accountnumber": "200601",
+      "city": "Roma",
+      "prov": "RM",
+      "vatnumber": "IT20060100021",
+      "fiscalcode": "20060100021",
+      "fk_filiale_id": "010",
+      "fk_agente_id": "AG10",
+      "campaign_status": null,
+      "campaign_status_label": "IN CORSO",
+      "total_phases": 3,
+      "completed_phases": 1,
+      "seller_intranet_id": 401,
+      "seller_name": "Sara Conti",
+      "seller_email": "sara.conti@example.test"
+    },
+    {
+      "campaign_client_id": 9102,
+      "client_id": 602,
+      "company": "Nova Engineering",
+      "accountnumber": "200602",
+      "city": "Firenze",
+      "prov": "FI",
+      "vatnumber": "IT20060200022",
+      "fiscalcode": "20060200022",
+      "fk_filiale_id": "011",
+      "fk_agente_id": "AG11",
+      "campaign_status": "COMPLETED",
+      "campaign_status_label": "COMPLETATA",
+      "total_phases": 3,
+      "completed_phases": 3,
+      "seller_intranet_id": 402,
+      "seller_name": "Davide Costa",
+      "seller_email": "davide.costa@example.test"
+    },
+    {
+      "campaign_client_id": 9103,
+      "client_id": 603,
+      "company": "Sirius Components",
+      "accountnumber": "200603",
+      "city": "Verona",
+      "prov": "VR",
+      "vatnumber": "IT20060300023",
+      "fiscalcode": "20060300023",
+      "fk_filiale_id": "012",
+      "fk_agente_id": "AG12",
+      "campaign_status": null,
+      "campaign_status_label": "IN CORSO",
+      "total_phases": 3,
+      "completed_phases": 0,
+      "seller_intranet_id": 403,
+      "seller_name": "Elena Riva",
+      "seller_email": "elena.riva@example.test"
+    }
+  ]
+}

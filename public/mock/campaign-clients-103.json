@@ -1,0 +1,44 @@
+{
+  "status": "success",
+  "message": null,
+  "data": [
+    {
+      "campaign_client_id": 9201,
+      "client_id": 701,
+      "company": "Archivio Cliente Uno",
+      "accountnumber": "300701",
+      "city": "Napoli",
+      "prov": "NA",
+      "vatnumber": "IT30070100031",
+      "fiscalcode": "30070100031",
+      "fk_filiale_id": "020",
+      "fk_agente_id": "AG20",
+      "campaign_status": "COMPLETED",
+      "campaign_status_label": "COMPLETATA",
+      "total_phases": 2,
+      "completed_phases": 2,
+      "seller_intranet_id": 501,
+      "seller_name": "Marco Testa",
+      "seller_email": "marco.testa@example.test"
+    },
+    {
+      "campaign_client_id": 9202,
+      "client_id": 702,
+      "company": "Archivio Cliente Due",
+      "accountnumber": "300702",
+      "city": "Bari",
+      "prov": "BA",
+      "vatnumber": "IT30070200032",
+      "fiscalcode": "30070200032",
+      "fk_filiale_id": "021",
+      "fk_agente_id": "AG21",
+      "campaign_status": "CANCELLED",
+      "campaign_status_label": "CANCELLATA",
+      "total_phases": 2,
+      "completed_phases": 1,
+      "seller_intranet_id": 502,
+      "seller_name": "Chiara Moretti",
+      "seller_email": "chiara.moretti@example.test"
+    }
+  ]
+}

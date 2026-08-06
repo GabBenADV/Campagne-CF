@@ -1,0 +1,106 @@
+{
+  "status": "success",
+  "message": null,
+  "data": [
+    {
+      "client_phase_id": 12001,
+      "campaign_id": 101,
+      "client_id": 501,
+      "phase_id": 3001,
+      "position": 1,
+      "title": "Preparazione documentazione",
+      "descr": "Caricamento e verifica documenti iniziali.",
+      "phase_state": "OK",
+      "campaign_status": null,
+      "main_document_id": 8801,
+      "main_document_file_name": "cm_101_cl_501_ph_12001_documento_iniziale.pdf",
+      "main_document_download_url": "/uploads/campaigns/cm_101_cl_501_ph_12001_documento_iniziale.pdf",
+      "has_new_back_docs": 0,
+      "flags": {
+        "enable_notify_pdv": 0,
+        "enable_process_outcome": 0,
+        "enable_process_post_sign_editing": 0,
+        "enable_master_reloading": 1,
+        "enable_segreteria_vendite": 0,
+        "enable_hierarchy_off": 0,
+        "enable_max_date_block": 0,
+        "enable_rpv": 0
+      }
+    },
+    {
+      "client_phase_id": 12002,
+      "campaign_id": 101,
+      "client_id": 501,
+      "phase_id": 3002,
+      "position": 2,
+      "title": "Revisione punto vendita",
+      "descr": "Il punto vendita verifica il documento e può inviare modifiche.",
+      "phase_state": "PENDING",
+      "campaign_status": null,
+      "main_document_id": null,
+      "main_document_file_name": null,
+      "main_document_download_url": null,
+      "has_new_back_docs": 1,
+      "flags": {
+        "enable_notify_pdv": 1,
+        "enable_process_outcome": 0,
+        "enable_process_post_sign_editing": 1,
+        "enable_master_reloading": 0,
+        "enable_segreteria_vendite": 0,
+        "enable_hierarchy_off": 0,
+        "enable_max_date_block": 0,
+        "enable_rpv": 0
+      }
+    },
+    {
+      "client_phase_id": 12003,
+      "campaign_id": 101,
+      "client_id": 501,
+      "phase_id": 3003,
+      "position": 3,
+      "title": "Approvazione backoffice",
+      "descr": "Controllo finale e approvazione da parte del backoffice.",
+      "phase_state": "PENDING",
+      "campaign_status": null,
+      "main_document_id": null,
+      "main_document_file_name": null,
+      "main_document_download_url": null,
+      "has_new_back_docs": 0,
+      "flags": {
+        "enable_notify_pdv": 0,
+        "enable_process_outcome": 0,
+        "enable_process_post_sign_editing": 0,
+        "enable_master_reloading": 0,
+        "enable_segreteria_vendite": 1,
+        "enable_hierarchy_off": 0,
+        "enable_max_date_block": 1,
+        "enable_rpv": 1
+      }
+    },
+    {
+      "client_phase_id": 12004,
+      "campaign_id": 101,
+      "client_id": 501,
+      "phase_id": 3004,
+      "position": 4,
+      "title": "Chiusura campagna cliente",
+      "descr": "Conferma finale dell'esito e chiusura campagna per il cliente.",
+      "phase_state": "PENDING",
+      "campaign_status": null,
+      "main_document_id": null,
+      "main_document_file_name": null,
+      "main_document_download_url": null,
+      "has_new_back_docs": 0,
+      "flags": {
+        "enable_notify_pdv": 0,
+        "enable_process_outcome": 1,
+        "enable_process_post_sign_editing": 0,
+        "enable_master_reloading": 0,
+        "enable_segreteria_vendite": 0,
+        "enable_hierarchy_off": 0,
+        "enable_max_date_block": 0,
+        "enable_rpv": 0
+      }
+    }
+  ]
+}

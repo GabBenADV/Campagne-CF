@@ -1,0 +1,48 @@
+{
+  "status": "success",
+  "message": null,
+  "data": [
+    {
+      "id": 101,
+      "title": "Campagna Lettere Premio Q3",
+      "code": "LP-2026-Q3",
+      "campaign_type": "letters",
+      "start_date": "2026-06-15",
+      "end_date": "2026-09-30",
+      "max_date": "2026-09-15",
+      "master_document": "20260528101030_a1b2c3d4_lettera_premio_master.docx",
+      "approving_iter_information": "Iter approvativo standard: Agente → PV → Backoffice",
+      "active": 1,
+      "total_phases": 4,
+      "clients_count": 5
+    },
+    {
+      "id": 102,
+      "title": "Campagna Rinnovo Contratti 2026",
+      "code": "RC-2026",
+      "campaign_type": "contracts",
+      "start_date": "2026-07-01",
+      "end_date": "2026-12-31",
+      "max_date": "2026-12-15",
+      "master_document": "20260528104522_b9c8d7e6_rinnovo_contratti_master.docx",
+      "approving_iter_information": "Richiede verifica commerciale e approvazione finale.",
+      "active": 1,
+      "total_phases": 3,
+      "clients_count": 3
+    },
+    {
+      "id": 103,
+      "title": "Campagna Storica Test",
+      "code": "ARCHIVE-2025",
+      "campaign_type": "archive",
+      "start_date": "2025-03-01",
+      "end_date": "2025-06-30",
+      "max_date": "2025-06-15",
+      "master_document": "20250201120000_archive_master.docx",
+      "approving_iter_information": "",
+      "active": 0,
+      "total_phases": 2,
+      "clients_count": 2
+    }
+  ]
+}

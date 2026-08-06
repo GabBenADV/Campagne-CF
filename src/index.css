@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+   --color-custom-blue: #009fe3;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#root {
+
+:root {
+  --lato: 'Lato', sans-serif;
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% 'Lato', sans-serif;
+  letter-spacing: 0.18px;
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+} */
+
+#campaigns-root {
+  /* min-height: 100vh; */
+  display: flex;
+  max-width: 100%;
+}
+
+#campaigns-root body {
+  /* overflow-x: hidden; */
+  font-family: var(--lato);
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* 
+#campaigns-root .panel {
+  background: linear-gradient(145deg, #ffffff 0%, #f3f9ff 45%, rgba(0, 159, 227, 0.08) 100%);
+} 
+*/
+
+#campaigns-root h1 {
+ font-size: 1rem;
+ margin: 0;
+}
+
+#campaigns-root h2 {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+#campaigns-root h3 {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+#campaigns-root p {
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+}
