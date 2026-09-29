@@ -1,0 +1,81 @@
+{
+  "status": "success",
+  "message": null,
+  "data": [
+    {
+      "client_phase_id": 13101,
+      "campaign_id": 102,
+      "client_id": 602,
+      "phase_id": 4001,
+      "position": 1,
+      "title": "Raccolta dati contratto",
+      "descr": "Prima verifica dei dati commerciali del cliente.",
+      "phase_state": "OK",
+      "campaign_status": "COMPLETED",
+      "main_document_id": 8911,
+      "main_document_file_name": "cm_102_cl_602_ph_13101_raccolta.pdf",
+      "main_document_download_url": "/uploads/campaigns/cm_102_cl_602_ph_13101_raccolta.pdf",
+      "has_new_back_docs": 0,
+      "flags": {
+        "enable_notify_pdv": 0,
+        "enable_process_outcome": 0,
+        "enable_process_post_sign_editing": 0,
+        "enable_master_reloading": 0,
+        "enable_segreteria_vendite": 0,
+        "enable_hierarchy_off": 1,
+        "enable_max_date_block": 0,
+        "enable_rpv": 0
+      }
+    },
+    {
+      "client_phase_id": 13102,
+      "campaign_id": 102,
+      "client_id": 602,
+      "phase_id": 4002,
+      "position": 2,
+      "title": "Firma e caricamento contratto",
+      "descr": "Attesa firma cliente e caricamento documento firmato.",
+      "phase_state": "OK",
+      "campaign_status": "COMPLETED",
+      "main_document_id": 8912,
+      "main_document_file_name": "cm_102_cl_602_ph_13102_firmato.pdf",
+      "main_document_download_url": "/uploads/campaigns/cm_102_cl_602_ph_13102_firmato.pdf",
+      "has_new_back_docs": 0,
+      "flags": {
+        "enable_notify_pdv": 1,
+        "enable_process_outcome": 0,
+        "enable_process_post_sign_editing": 0,
+        "enable_master_reloading": 1,
+        "enable_segreteria_vendite": 0,
+        "enable_hierarchy_off": 1,
+        "enable_max_date_block": 1,
+        "enable_rpv": 0
+      }
+    },
+    {
+      "client_phase_id": 13103,
+      "campaign_id": 102,
+      "client_id": 602,
+      "phase_id": 4003,
+      "position": 3,
+      "title": "Archiviazione finale",
+      "descr": "Archiviazione del contratto e completamento.",
+      "phase_state": "OK",
+      "campaign_status": "COMPLETED",
+      "main_document_id": 8913,
+      "main_document_file_name": "cm_102_cl_602_ph_13103_archiviazione.pdf",
+      "main_document_download_url": "/uploads/campaigns/cm_102_cl_602_ph_13103_archiviazione.pdf",
+      "has_new_back_docs": 0,
+      "flags": {
+        "enable_notify_pdv": 0,
+        "enable_process_outcome": 1,
+        "enable_process_post_sign_editing": 0,
+        "enable_master_reloading": 0,
+        "enable_segreteria_vendite": 1,
+        "enable_hierarchy_off": 1,
+        "enable_max_date_block": 0,
+        "enable_rpv": 1
+      }
+    }
+  ]
+}

@@ -1,16 +1,18 @@
-import type { CampaignClientPhase } from "../types/types";
+import type { CampaignClientPhase, Client } from "../types/types";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import PhaseDetail from "./phases/PhaseDetail";
 
 export default function Panel({
   selectedPhaseId,
   phase,
+  client,
   onClosePanel,
   onPhaseChanged,
   onCampaignStateChange,
 }: {
   selectedPhaseId: number | null;
   phase: CampaignClientPhase | null;
+  client: Client | null;
   onClosePanel: () => void;
   onPhaseChanged: () => void;
   onCampaignStateChange?: () => void;
@@ -40,6 +42,18 @@ export default function Panel({
         >
           <XMarkIcon className="h-full w-full cursor-pointer" />
         </div>
+
+        {client && (
+          <div className="sticky top-0 z-10 mb-6 border-b border-gray-200 bg-white pb-4">
+            <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+              Cliente
+            </div>
+
+            <div className="mt-1 text-lg font-bold text-gray-900">
+              {client.accountnumber} · {client.company}
+            </div>
+          </div>
+        )}
 
         {phase && (
           <PhaseDetail phase={phase} onPhaseChanged={onPhaseChanged} onCampaignStateChange={onCampaignStateChange} closePanel={onClosePanel} />

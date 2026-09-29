@@ -111,10 +111,7 @@ export default function ClientsList({
 
   return (
     <div className="clients-list flex flex-col gap-4">
-       <ClientsExcelExportButton
-          clients={clients}
-          campaignId={campaignId}
-        />
+       <ClientsExcelExportButton />
       <div className="grid lg:grid-cols-[60%_auto] gap-8">
         <input
           type="search"

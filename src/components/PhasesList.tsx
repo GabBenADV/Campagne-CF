@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import type { CampaignClientPhase } from "../types/types";
+import type { CampaignClientPhase, Client } from "../types/types";
 import { campaignsApi } from "../services/campaignsApi";
 import Panel from "./Panel";
 import PhaseItem from "./phases/PhaseItem";
 
 export default function PhasesList({
   clientId,
+  client,
   campaignId,
   selectedPhaseId,
   onSelectedPhase,
@@ -14,6 +15,7 @@ export default function PhasesList({
   onCampaignStateChange,
 }: {
   clientId: number | null;
+  client: Client | null;
   campaignId: number | null;
   selectedPhaseId: number | null;
   onSelectedPhase: (phaseId: number) => void;
@@ -96,6 +98,7 @@ export default function PhasesList({
       <Panel
         selectedPhaseId={selectedPhaseId}
         phase={selectedPhase}
+        client={client}
         onClosePanel={onClosePanel}
         onPhaseChanged={fetchPhases}
         onCampaignStateChange={onCampaignStateChange}

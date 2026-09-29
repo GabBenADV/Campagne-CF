@@ -27,6 +27,10 @@ function App() {
   const selectedCampaign =
     campaigns.find((campaign) => campaign.id === selectedCampaignId) ?? null;
 
+  const selectedClient =
+    selectedCampaignClients.find((client) => client.client_id === clientId) ??
+    null;
+
   const selectedCampaignClientsCount = selectedCampaignClients.length;
 
   const selectedCampaignCompletedClientsCount = selectedCampaignClients.filter(
@@ -169,6 +173,7 @@ function App() {
           </div>
           <PhasesList
             clientId={clientId}
+            client={selectedClient}
             campaignId={selectedCampaignId}
             refreshKey={phasesRefreshKey}
             onSelectedPhase={handlePhaseSelect}

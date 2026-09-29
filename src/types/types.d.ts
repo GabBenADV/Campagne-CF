@@ -18,6 +18,10 @@ export type Client = {
     
     company: string;
     accountnumber: string;
+
+    master_code: string;
+    is_slave: number;
+
     city: string;
     prov: string;
     vatnumber: string;
@@ -28,6 +32,7 @@ export type Client = {
     completed_phases: number;
     total_phases: number;
     active_campaigns_count?: number;
+    active_campaign_names?: string[];
     
     current_phase_position?: number | null;
     current_phase_title?: string | null;
@@ -96,6 +101,7 @@ export type CampaignClientPhase = {
     can_submit_for_approval?: boolean;
     can_approve?: boolean;
     can_reject?: boolean;
+    can_reopen_for_approval?: boolean;
 
     can_send_back_documents?: boolean;
     can_view_back_documents?: boolean;

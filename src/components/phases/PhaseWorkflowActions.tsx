@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  ArrowUturnLeftIcon,
   CheckCircleIcon,
   PaperAirplaneIcon,
   XCircleIcon,
@@ -23,6 +24,7 @@ export default function PhaseWorkflowActions({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isApproving, setIsApproving] = useState(false);
   const [isRejecting, setIsRejecting] = useState(false);
+  const [isReopening, setIsReopening] = useState(false);
   const [isCompletingCampaign, setIsCompletingCampaign] = useState(false);
   const [isCancellingCampaign, setIsCancellingCampaign] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -30,6 +32,9 @@ export default function PhaseWorkflowActions({
   const canSubmit = Boolean(phase.permissions?.can_submit_for_approval);
   const canApprove = Boolean(phase.permissions?.can_approve);
   const canReject = Boolean(phase.permissions?.can_reject);
+  const canReopenForApproval = Boolean(
+    phase.permissions?.can_reopen_for_approval,
+  );
   const canCompleteCampaign = Boolean(phase.permissions?.can_complete_campaign);
   const canCancelCampaign = Boolean(phase.permissions?.can_cancel_campaign);
 
@@ -37,6 +42,7 @@ export default function PhaseWorkflowActions({
     !canSubmit &&
     !canApprove &&
     !canReject &&
+    !canReopenForApproval &&
     !canCompleteCampaign &&
     !canCancelCampaign
   ) {
@@ -156,6 +162,42 @@ export default function PhaseWorkflowActions({
     }
   };
 
+  const reopenPhaseForApproval = async () => {
+    if (isReopening) return;
+
+    const confirmed = window.confirm(
+      "Vuoi riportare questa fase in attesa di approvazione?",
+    );
+
+    if (!confirmed) return;
+
+    setIsReopening(true);
+    setError(null);
+
+    try {
+      await campaignsApi("reopenPhaseForApproval", {
+        client_phase_id: phase.client_phase_id,
+      });
+
+      onChanged();
+
+      if (onCampaignStateChange) {
+        onCampaignStateChange();
+        closePanel?.();
+      }
+    } catch (error) {
+      console.error("Errore riapertura fase:", error);
+      setError(
+        getErrorMessage(
+          error,
+          "Non è stato possibile riportare la fase in approvazione.",
+        ),
+      );
+    } finally {
+      setIsReopening(false);
+    }
+  };
+
   const completeCampaign = async () => {
     if (isCompletingCampaign) return;
 
@@ -251,6 +293,18 @@ export default function PhaseWorkflowActions({
           >
             <CheckCircleIcon className="h-4 w-4" />
             {isApproving ? "Approvo..." : "Approva"}
+          </button>
+        )}
+
+        {canReopenForApproval && (
+          <button
+            type="button"
+            onClick={reopenPhaseForApproval}
+            disabled={isReopening}
+            className="inline-flex items-center gap-2 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-700 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <ArrowUturnLeftIcon className="h-4 w-4" />
+            {isReopening ? "Ripristino..." : "Riporta in approvazione"}
           </button>
         )}
 

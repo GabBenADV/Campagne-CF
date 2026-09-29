@@ -67,25 +67,49 @@ export function ClientListItem({
           <TrashIcon className="h-4 w-4" />
         </button>
       )}
+      
 
       <div className="bg-custom-blue rounded-lg w-fit px-1 mb-2">
         <h2 className="text-white">{client.accountnumber}</h2>
       </div>
 
-      <h1 className="pr-10 font-bold uppercase">{client.company}</h1>
+      <div className="flex flex-wrap items-center gap-2 pr-10">
+        <h1 className="font-bold uppercase">{client.company}</h1>
+
+        {Boolean(client.is_slave) && client.master_code && (
+          <span className="rounded-full border border-purple-200 bg-purple-50 px-2 py-1 text-xs font-semibold text-purple-700">
+            SLAVE · {client.master_code}
+          </span>
+        )}
+      </div>
 
       <div className="flex flex-wrap items-center gap-2">
         {/* <h2>Cod. Cliente: {client.accountnumber}</h2> */}
         Area:<h2> {client.area}</h2>
         Polo:<h2> {client.polo}</h2>
-        Filiale:<h2> {client.city}</h2>
+        PdV:<h2> {client.filiale}</h2>
       </div>
 
       <div>
         Venditore: <b>{client.seller_name}</b>
       </div>
 
-      <div>Altre campagne attive: {client.active_campaigns_count ?? 0}</div>
+      <div>
+        <div>
+          Altre campagne in corso: {client.active_campaigns_count ?? 0}
+        </div>
+
+        {client.active_campaign_names &&
+          client.active_campaign_names.length > 0 && (
+            <div className="mt-1 text-sm text-gray-600">
+              {client.active_campaign_names.map((campaignName) => (
+                <div key={campaignName}>
+                  {campaignName}
+                </div>
+              ))}
+            </div>
+          )}
+      </div>
 
 
       <div className="mt-2 flex flex-wrap gap-2">
