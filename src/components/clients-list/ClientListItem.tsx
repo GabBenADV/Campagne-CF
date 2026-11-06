@@ -150,7 +150,7 @@ export function ClientListItem({
           {client.current_phase_label || "-"}
         </span>
         {!client.is_todo && <h2 className="ms-auto w-fit">{client.campaign_status_label}</h2>}
-        {client.is_todo && <h2 className="ms-auto w-fit">Da fare</h2>}
+        {client.is_todo && <h2 className="ms-auto w-fit">DA FARE</h2>}
       </div>
     </div>
   );

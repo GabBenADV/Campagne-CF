@@ -128,7 +128,7 @@ export default function ClientsList({
         >
           <option value="" disabled>Filtra per stato campagna</option>
           <option value="all">Tutti gli stati</option>
-          <option value="todo">TODO</option>
+          <option value="todo">DA FARE</option>
           <option value="in_progress">In corso</option>
           <option value="completed">Completate</option>
           <option value="cancelled">Annullate</option>
