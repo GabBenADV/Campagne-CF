@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Campaign } from "../../types/types";
 
-export default function CampaignsListItem({campaign, isSelected}: {campaign: Campaign, isSelected?: boolean}) {
+export default function CampaignsListItem({campaign, isSelected, isExpired = false}: {campaign: Campaign, isSelected?: boolean, isExpired?: boolean}) {
     const [selected, setSelected] = useState(isSelected);
     useEffect(() => {
         setSelected(isSelected);
@@ -9,7 +9,7 @@ export default function CampaignsListItem({campaign, isSelected}: {campaign: Cam
     }, [isSelected]);
 
     const borderColor = selected ? "!border-custom-blue shadow-md" : "!border-gray-300 shadow-sm";
-    const bgColor = selected ? "bg-blue-50" : "bg-white";
+    const bgColor = selected ? "bg-blue-50" : isExpired ? "bg-red-50" : "bg-white";
     // console.log('CampaignsListItem :', campaign);
 
     return (

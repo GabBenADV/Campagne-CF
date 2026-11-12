@@ -10,6 +10,7 @@ import type { Campaign, Client } from "./types/types";
 import EditorContent from "./components/tools/EditorContent";
 
 function App() {
+  const tutorialPdfUrl = document.getElementById("campaigns-root")?.getAttribute("data-tutorial-url")?.trim() ?? "";
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedCampaignId, setSelectedCampaignId] = useState<number | null>(
@@ -130,6 +131,29 @@ function App() {
           // title="Campagne"
           description="Seleziona una campagna per visualizzare i clienti e le fasi."
         >
+          <div className="mb-4">
+            {tutorialPdfUrl ? (
+              <a
+                href={tutorialPdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-red-600 bg-white px-4 py-2 text-sm font-medium text-gray-800 hover:bg-red-50"
+                aria-label="Apri il tutorial PDF delle campagne"
+              >
+                <i className="icon-file-pdf text-xl text-red-600" aria-hidden="true" />
+                Guarda il Tutorial
+              </a>
+            ) : (
+              <span
+                className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-medium text-gray-500"
+                aria-label="Tutorial PDF non ancora disponibile"
+                title="Configura CAMPAIGNS_TUTORIAL_PDF_URL per abilitare il tutorial"
+              >
+                <i className="icon-file-pdf text-xl" aria-hidden="true" />
+                Guarda il Tutorial
+              </span>
+            )}
+          </div>
           <CampaignsList
             campaigns={campaignsWithLiveSelectedStats}
             onCampaignSelect={handleCampaignSelect}
