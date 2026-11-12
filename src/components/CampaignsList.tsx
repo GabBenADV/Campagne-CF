@@ -71,7 +71,7 @@ export default function CampaignsList({
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="bg-white rounded-lg">
+      <div className="bg-white rounded-lg hidden">
         <input
           type="search"
           value={search}
