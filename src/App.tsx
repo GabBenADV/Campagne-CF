@@ -10,7 +10,7 @@ import type { Campaign, Client } from "./types/types";
 import EditorContent from "./components/tools/EditorContent";
 
 function App() {
-  const tutorialPdfUrl = document.getElementById("campaigns-root")?.getAttribute("data-tutorial-url")?.trim() ?? "";
+  const tutorialPdfUrl = '/download/flipbook.php?id=120';
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedCampaignId, setSelectedCampaignId] = useState<number | null>(
