@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import type { Campaign } from "../types/types";
+import { decodeHtmlEntities } from "../utils/decodeHtmlEntities";
 import CampaignsListItem from "./campaigns-list/CampaignsListItem";
 
 // Confronta date di calendario evitando differenze dovute ai fusi orari.
@@ -35,7 +36,7 @@ export default function CampaignsList({
     }
 
     return (campaigns ?? []).filter((campaign) => {
-      const title = String(campaign.title ?? "").toLowerCase();
+      const title = decodeHtmlEntities(campaign.title).toLowerCase();
       const code = String(campaign.code ?? "").toLowerCase();
       const type = String(campaign.campaign_type ?? "").toLowerCase();
 
@@ -70,7 +71,7 @@ export default function CampaignsList({
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="bg-white rounded-lg hidden">
+      <div className="bg-white rounded-lg">
         <input
           type="search"
           value={search}

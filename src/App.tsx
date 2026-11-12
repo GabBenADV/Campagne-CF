@@ -137,7 +137,7 @@ function App() {
                 href={tutorialPdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-red-600 bg-white px-4 py-2 text-sm font-medium text-gray-800 hover:bg-red-50"
+                className="inline-flex items-center gap-2 rounded-full border border-red-600 bg-white px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50"
                 aria-label="Apri il tutorial PDF delle campagne"
               >
                 <i className="icon-file-pdf text-xl text-red-600" aria-hidden="true" />

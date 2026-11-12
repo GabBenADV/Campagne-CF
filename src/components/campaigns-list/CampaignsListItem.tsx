@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Campaign } from "../../types/types";
+import { decodeHtmlEntities } from "../../utils/decodeHtmlEntities";
 
 export default function CampaignsListItem({campaign, isSelected, isExpired = false}: {campaign: Campaign, isSelected?: boolean, isExpired?: boolean}) {
     const [selected, setSelected] = useState(isSelected);
@@ -14,7 +15,7 @@ export default function CampaignsListItem({campaign, isSelected, isExpired = fal
 
     return (
         <div className={`p-3 border ${borderColor} ${bgColor} rounded-lg hover:shadow-md cursor-pointer transition-shadow duration-200 flex flex-col gap-2`}>
-            <h1 className="uppercase font-bold">{campaign.title}</h1>
+            <h1 className="uppercase font-bold">{decodeHtmlEntities(campaign.title)}</h1>
             <div className="flex flex-wrap items-center gap-2">
                 { campaign.active ? <p className="bg-custom-blue px-2 py-1 rounded-full uppercase text-white text-sm">Attiva</p> : <p className="bg-red-500 px-2 py-1 rounded-full uppercase text-white text-sm">Disattiva</p> }
                 <div className="flex"><p className="text-sm">{campaign.start_date} → {campaign.end_date}</p></div>
