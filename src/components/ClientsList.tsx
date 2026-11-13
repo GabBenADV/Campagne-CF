@@ -18,6 +18,7 @@ export default function ClientsList({
   onClientsChange?: (clients: Client[]) => void;
 }) {
   const [clients, setClients] = useState<Client[]>([]);
+  const [unlinkPermissions, setUnlinkPermissions] = useState<Record<string, boolean>>({});
   const [deletingClientId, setDeletingClientId] = useState<number | null>(null);
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
@@ -25,6 +26,7 @@ export default function ClientsList({
   const fetchClients = async () => {
     if (campaignId === undefined || campaignId === null) {
       setClients([]);
+      setUnlinkPermissions({});
       onClientsChange?.([]);
       return;
     }
@@ -39,6 +41,19 @@ export default function ClientsList({
       const nextClients = Array.isArray(data) ? data : [];
 
       setClients(nextClients);
+      // Il backend decide i permessi: in attesa della risposta il cestino
+      // resta nascosto (fail closed).
+      setUnlinkPermissions({});
+      try {
+        const permissions = await campaignsApi<Record<string, boolean>>(
+          "getCampaignClientUnlinkPermissions",
+          { campaign_id: campaignId }
+        );
+        setUnlinkPermissions(permissions ?? {});
+      } catch (permissionError) {
+        console.error("Impossibile recuperare i permessi di rimozione:", permissionError);
+        setUnlinkPermissions({});
+      }
       onClientsChange?.(nextClients);
     } catch (error) {
       console.error(
@@ -49,6 +64,7 @@ export default function ClientsList({
       );
 
       setClients([]);
+      setUnlinkPermissions({});
       onClientsChange?.([]);
     }
   };
@@ -149,7 +165,7 @@ export default function ClientsList({
           <ClientListItem
             client={client}
             isSelected={selectedClientId === client.client_id}
-            canDeleteFromCampaign={campaignId !== undefined && campaignId !== null}
+            canDeleteFromCampaign={unlinkPermissions[String(client.client_id)] === true}
             isDeleting={deletingClientId === client.client_id}
             onDeleteFromCampaign={(event) => {
               event.stopPropagation();
