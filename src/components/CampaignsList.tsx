@@ -14,7 +14,7 @@ function calendarDate(value: string | null | undefined): string | null {
 }
 
 function isActive(campaign: Campaign): boolean {
-  return campaign.active === true || campaign.active === 1 || String(campaign.active) === "1";
+  return campaign.active === 1 || String(campaign.active) === "1";
 }
 
 const titleCollator = new Intl.Collator("it", { sensitivity: "base", numeric: true });
