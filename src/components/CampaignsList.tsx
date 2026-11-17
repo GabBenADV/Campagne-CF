@@ -14,7 +14,7 @@ function calendarDate(value: string | null | undefined): string | null {
 }
 
 function isActive(campaign: Campaign): boolean {
-  return campaign.active === 1 || String(campaign.active) === "1";
+  return String(campaign.active) === "true" || String(campaign.active) === "1";
 }
 
 const titleCollator = new Intl.Collator("it", { sensitivity: "base", numeric: true });
@@ -49,6 +49,7 @@ export default function CampaignsList({
   const filteredCampaigns = useMemo(() => {
     const normalizedSearch = search.trim().toLocaleLowerCase("it");
     return (campaigns ?? [])
+      .filter(isActive)
       .filter((campaign) => {
         if (!normalizedSearch) return true;
         return [decodeHtmlEntities(String(campaign.title ?? "")), campaign.code, campaign.campaign_type]
@@ -136,8 +137,7 @@ export default function CampaignsList({
           Nessuna campagna trovata.
         </p>
       )}
-      {renderStatusGroup(filteredCampaigns.filter(isActive), "active")}
-      {renderStatusGroup(filteredCampaigns.filter((campaign) => !isActive(campaign)), "inactive")}
+      {renderStatusGroup(filteredCampaigns, "active")}
     </div>
   );
 }
