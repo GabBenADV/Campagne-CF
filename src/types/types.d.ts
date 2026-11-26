@@ -9,6 +9,7 @@ export type Campaign = {
     completed_clients_count: number;
     cancelled_clients_count: number;
     approving_iter_information?: string | null;
+    master_document?: string | null;
     [key: string]: any; // For any additional properties
 }
 

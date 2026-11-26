@@ -199,6 +199,7 @@ function App() {
             clientId={clientId}
             client={selectedClient}
             campaignId={selectedCampaignId}
+            masterDocument={selectedCampaign?.master_document ?? null}
             refreshKey={phasesRefreshKey}
             onSelectedPhase={handlePhaseSelect}
             selectedPhaseId={phaseId}

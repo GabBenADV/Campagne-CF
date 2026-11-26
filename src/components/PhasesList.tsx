@@ -8,6 +8,7 @@ export default function PhasesList({
   clientId,
   client,
   campaignId,
+  masterDocument,
   selectedPhaseId,
   onSelectedPhase,
   onClosePanel,
@@ -17,6 +18,7 @@ export default function PhasesList({
   clientId: number | null;
   client: Client | null;
   campaignId: number | null;
+  masterDocument: string | null;
   selectedPhaseId: number | null;
   onSelectedPhase: (phaseId: number) => void;
   onClosePanel: () => void;
@@ -98,6 +100,7 @@ export default function PhasesList({
       <Panel
         selectedPhaseId={selectedPhaseId}
         phase={selectedPhase}
+        masterDocument={masterDocument}
         client={client}
         onClosePanel={onClosePanel}
         onPhaseChanged={fetchPhases}

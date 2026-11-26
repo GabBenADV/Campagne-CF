@@ -9,15 +9,26 @@ import {
 
 export default function PhaseDetail({
   phase,
+  masterDocument,
   onPhaseChanged,
   onCampaignStateChange,
   closePanel
 }: {
   phase: CampaignClientPhase;
+  masterDocument: string | null;
   onPhaseChanged: () => void;
   onCampaignStateChange?: () => void;
   closePanel?: () => void;
 }) {
+  // Il CMS restituisce il solo nome file in campaigns.master_document.
+  // Accettiamo soltanto un nome file, senza segmenti di percorso.
+  const fileName = masterDocument?.trim() ?? "";
+  const masterDocumentUrl =
+    fileName && fileName !== "." && fileName !== ".." &&
+    !/[\\/\x00-\x1F]/.test(fileName)
+      ? `/uploads/campaigns/master/${encodeURIComponent(fileName)}`
+      : null;
+
   // console.log("PhaseDetail permissions:", phase.permissions);
   // console.log("[DEBUG main document][PhaseDetail]", {
   //   position: phase.position,
@@ -42,15 +53,19 @@ export default function PhaseDetail({
         <h2 className="text-xl font-bold uppercase">
           Scarica modulo proposta d'iscrizione
         </h2>
-        <a
-            href="https://www.comoliferrari.it/uploads/campaigns/master/20260427085226_5d00dc38_20260109101741_9c6e30c5_Proposta_Iscrizione_LETTERA_PREMIO_ANNUALE_STANDARD_-_2026.xlsx"
+        {masterDocumentUrl ? (
+          <a
+            href={masterDocumentUrl}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1 rounded-lg border border-gray-300 px-3 py-2 text-sm! font-semibold text-gray-700 transition hover:bg-white"
           >
             <ArrowDownTrayIcon className="h-4 w-4" />
             Scarica
           </a>
+        ) : (
+          <span className="text-sm text-gray-500">Modulo non disponibile</span>
+        )}
       </div>
 
 

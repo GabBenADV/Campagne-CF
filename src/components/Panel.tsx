@@ -5,6 +5,7 @@ import PhaseDetail from "./phases/PhaseDetail";
 export default function Panel({
   selectedPhaseId,
   phase,
+  masterDocument,
   client,
   onClosePanel,
   onPhaseChanged,
@@ -12,6 +13,7 @@ export default function Panel({
 }: {
   selectedPhaseId: number | null;
   phase: CampaignClientPhase | null;
+  masterDocument: string | null;
   client: Client | null;
   onClosePanel: () => void;
   onPhaseChanged: () => void;
@@ -56,7 +58,7 @@ export default function Panel({
         )}
 
         {phase && (
-          <PhaseDetail phase={phase} onPhaseChanged={onPhaseChanged} onCampaignStateChange={onCampaignStateChange} closePanel={onClosePanel} />
+          <PhaseDetail phase={phase} masterDocument={masterDocument} onPhaseChanged={onPhaseChanged} onCampaignStateChange={onCampaignStateChange} closePanel={onClosePanel} />
         )}
       </div>
     </div>
